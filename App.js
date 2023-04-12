@@ -1,7 +1,7 @@
 import React from 'react';
-// import {Text, View, StyleSheet} from 'react-native';
 
 import Register from './src/screens/Register';
+import UserList from './src/screens/UserList';
 
 const App = () => {
   return <Register />;

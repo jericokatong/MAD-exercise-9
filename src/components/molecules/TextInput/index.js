@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 const TextInput = ({label, placeholder, onInput}) => {
   const [input, setInput] = useState('');
 
-  onInput.inputName('input');
+  onInput([input]);
   if (label == 'Phone Number') {
     return (
       <View style={styles.layoutTextInput}>
