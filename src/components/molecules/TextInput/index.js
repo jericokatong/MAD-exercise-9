@@ -1,20 +1,16 @@
 import {View, StyleSheet, Text, TextInput as Input} from 'react-native';
 import React, {useState} from 'react';
 
-const TextInput = ({label, placeholder, onInput}) => {
-  const [input, setInput] = useState('');
-
-  onInput([input]);
+const TextInput = ({label, placeholder, onChangeText}) => {
   if (label == 'Phone Number') {
     return (
       <View style={styles.layoutTextInput}>
         <Text style={styles.textInputTitle}>{label}</Text>
         <Input
-          value={input}
           placeholder={placeholder}
           style={styles.textInput}
           keyboardType="numeric"
-          onChangeText={text => setInput(text)}
+          onChangeText={text => onChangeText(text)}
         />
       </View>
     );
@@ -25,7 +21,7 @@ const TextInput = ({label, placeholder, onInput}) => {
         <Input
           placeholder={placeholder}
           style={styles.textInput}
-          onChangeText={text => setInput(text)}
+          onChangeText={text => onChangeText(text)}
         />
       </View>
     );

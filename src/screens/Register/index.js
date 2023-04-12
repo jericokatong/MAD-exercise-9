@@ -1,7 +1,7 @@
 // Name: Jerico Imanuel Katong
 
 import React, {useState} from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, StyleSheet, Alert} from 'react-native';
 
 import Button from '../../components/atoms/Button';
 import TextInput from '../../components/molecules/TextInput';
@@ -13,27 +13,23 @@ const Register = () => {
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
-  const inputName = data => {
-    setName(data);
+  const onName = text => {
+    setName(text);
+  };
+  const onUsername = text => {
+    setUsername(text);
+  };
+  const onEmail = text => {
+    setEmail(text);
+  };
+  const onAddress = text => {
+    setAddress(text);
+  };
+  const onPhoneNumber = text => {
+    setPhoneNumber(text);
   };
 
-  const inputUsername = data => {
-    setUsername(data);
-  };
-
-  const inputEmail = data => {
-    setEmail(data);
-  };
-
-  const inputAddress = data => {
-    setAddress(data);
-  };
-
-  const inputPhoneNumber = data => {
-    setPhoneNumber(data);
-  };
-
-  const clickButton = () => {
+  const onClick = () => {
     console.log(
       `Name: ${name}\nUsername: ${username}\nEmail: ${email}\nAddress: ${address}\nPhone Number: ${phoneNumber}`,
     );
@@ -48,39 +44,39 @@ const Register = () => {
       <TextInput
         label="Name"
         placeholder="Masukan nama lengkap anda"
-        onInputName={inputName}
+        onChangeText={onName}
       />
 
       {/* TEXT INPUT USERNAME */}
       <TextInput
         label="Username"
         placeholder="Masukan username anda"
-        onInputUsername={inputUsername}
+        onChangeText={onUsername}
       />
 
       {/* TEXT INPUT Email */}
       <TextInput
         label="Email"
         placeholder="Masukan email anda"
-        onInputEmail={inputEmail}
+        onChangeText={onEmail}
       />
 
       {/* TEXT INPUT Address */}
       <TextInput
         label="Address"
         placeholder="Masukan alamat anda"
-        onInputAddress={inputAddress}
+        onChangeText={onAddress}
       />
 
       {/* TEXT INPUT Phone number */}
       <TextInput
         label="Phone Number"
         placeholder="Masukan Nomor telepon anda"
-        onInputPhoneNumber={inputPhoneNumber}
+        onChangeText={onPhoneNumber}
       />
 
       {/* BUTTON */}
-      <Button label="Register" onPress={clickButton} />
+      <Button label="Register" onClick={onClick} />
     </ScrollView>
   );
 };
